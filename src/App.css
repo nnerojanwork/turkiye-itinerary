@@ -326,79 +326,194 @@
   color: var(--terracotta);
 }
 
-.activity-list {
+/* Gallery shell */
+
+.activity-gallery {
+  position: relative;
+}
+
+.activity-gallery-track {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 4px 12px;
+  margin: 0 -4px;
+  scrollbar-width: thin;
 }
 
-.activity-row {
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  background: var(--paper);
-  padding: 10px 12px;
-}
-
-.activity-row.is-expanded {
-  background: var(--terracotta-soft);
-  border-color: var(--terracotta);
-}
-
-.activity-row-main {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.activity-row-main input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--terracotta);
-  flex-shrink: 0;
-}
-
-.activity-row-name {
-  flex: 1;
-  font-size: 14px;
-  font-weight: 500;
-  min-width: 0;
-}
-
-.activity-row-meta {
-  font-size: 12px;
-  color: var(--ink-faint);
-  white-space: nowrap;
-}
-
-.activity-row-expand {
-  width: 22px;
-  height: 22px;
+.activity-gallery-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid var(--rule);
   background: var(--paper-raised);
   color: var(--ink-soft);
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: var(--shadow);
 }
 
-.activity-row-expand:hover {
+.activity-gallery-arrow:hover {
   border-color: var(--terracotta);
   color: var(--terracotta);
 }
 
-.activity-row-description {
-  margin: 10px 0 2px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--rule);
+.activity-gallery-arrow-left {
+  left: -14px;
+}
+
+.activity-gallery-arrow-right {
+  right: -14px;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .activity-gallery-arrow {
+    display: none;
+  }
+}
+
+/* Cards */
+
+.activity-card {
+  scroll-snap-align: start;
+  flex: 0 0 82%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper-raised);
+  overflow: hidden;
+  height: 440px;
+}
+
+@media (min-width: 640px) {
+  .activity-card {
+    flex-basis: 70%;
+  }
+}
+
+@media (min-width: 900px) {
+  .activity-card {
+    flex-basis: 340px;
+  }
+}
+
+.activity-card-image {
+  position: relative;
+  flex: 0 0 58%;
+  background: linear-gradient(135deg, var(--terracotta), var(--turquoise));
+}
+
+.activity-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.activity-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.activity-card-placeholder-label {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.activity-card-meta {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.activity-card-price,
+.activity-card-duration {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(36, 28, 21, 0.55);
+  backdrop-filter: blur(2px);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.activity-card-body {
+  flex: 1;
+  padding: 12px 14px 0;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.activity-card-name {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.activity-card-description {
   font-size: 13px;
   line-height: 1.5;
   color: var(--ink-soft);
+}
+
+.activity-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px 14px;
+}
+
+.activity-card-toggle {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--terracotta);
+  background: transparent;
+  color: var(--terracotta);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.activity-card-toggle.is-selected {
+  background: var(--terracotta);
+  color: #fff;
+}
+
+.activity-card-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--turquoise);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.activity-card-link:hover {
+  text-decoration: underline;
 }
 
 /* ---------- Timeline ---------- */

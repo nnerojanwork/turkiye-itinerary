@@ -1,0 +1,217 @@
+{
+  "_methodology": {
+    "currency": "GBP",
+    "note": "Prices were sourced in EUR and converted to GBP at a fixed placeholder rate (0.86) so they total cleanly against the flight/Airbnb figures, which are already in GBP. Re-convert at the live rate before using this for a real pitch. sourced: true = found a specific current price; sourced: false = estimated from comparable tours — verify before pitch.",
+    "lastUpdated": "2026-08-18"
+  },
+  "destinations": {
+    "istanbul": {
+      "activities": [
+        {
+          "id": "istanbul-bosphorus-cruise",
+          "name": "Bosphorus sightseeing cruise",
+          "description": "Sail between two continents past Dolmabahçe Palace, Ortaköy Mosque and the Bosphorus Bridge. Public ferry is the budget option; private sightseeing boats add a live guide.",
+          "pricePerPerson": 15,
+          "durationHours": 1.5,
+          "category": "signature",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "istanbul-hagia-sophia",
+          "name": "Hagia Sophia",
+          "description": "Byzantine cathedral turned mosque turned museum turned mosque again — 1,500 years of architectural history in one building.",
+          "pricePerPerson": 22,
+          "durationHours": 1.5,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "istanbul-topkapi-palace",
+          "name": "Topkapi Palace (incl. Harem)",
+          "description": "Ottoman sultans' residence for 400 years — courtyards, treasury, and the Harem quarters. Closed Tuesdays.",
+          "pricePerPerson": 47,
+          "durationHours": 3,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "istanbul-basilica-cistern",
+          "name": "Basilica Cistern",
+          "description": "6th-century underground reservoir with 336 columns, including the famous upside-down Medusa heads.",
+          "pricePerPerson": 34,
+          "durationHours": 1,
+          "category": "self-guided",
+          "defaultSelected": false,
+          "sourced": true
+        }
+      ]
+    },
+    "cappadocia": {
+      "activities": [
+        {
+          "id": "cappadocia-balloon",
+          "name": "Hot-air balloon flight",
+          "description": "Dawn flight over fairy chimneys and valleys — the single most-photographed thing to do in Turkey. Weather-dependent; don't book on your last morning. Groups of 8 often get a 10-15% discount.",
+          "pricePerPerson": 155,
+          "durationHours": 1,
+          "category": "signature",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "cappadocia-underground-valleys-tour",
+          "name": "Underground city + valleys guided tour",
+          "description": "Derinkuyu or Kaymaklı underground city plus Selime and valley viewpoints — sights are spread out, worth a driver/guide over DIY.",
+          "pricePerPerson": 39,
+          "durationHours": 6,
+          "category": "guided",
+          "defaultSelected": false,
+          "sourced": false
+        },
+        {
+          "id": "cappadocia-open-air-museum",
+          "name": "Göreme Open-Air Museum",
+          "description": "UNESCO site of rock-cut churches with Byzantine frescoes, walkable from central Göreme.",
+          "pricePerPerson": 13,
+          "durationHours": 2,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": false
+        }
+      ]
+    },
+    "gaziantep": {
+      "activities": [
+        {
+          "id": "gaziantep-zeugma-museum",
+          "name": "Zeugma Mosaic Museum",
+          "description": "World's largest mosaic museum, home to the famous 'Gypsy Girl' — Roman mosaics rescued from the Zeugma site before it was flooded by a dam.",
+          "pricePerPerson": 6,
+          "durationHours": 1.5,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": false
+        },
+        {
+          "id": "gaziantep-food-tour",
+          "name": "Food tour / baklava & kebab crawl",
+          "description": "Gaziantep is UNESCO Creative City of Gastronomy — a guided food tour through the copper bazaar and baklava houses is the best way to do the region justice.",
+          "pricePerPerson": 43,
+          "durationHours": 3,
+          "category": "guided",
+          "defaultSelected": true,
+          "sourced": false
+        }
+      ]
+    },
+    "pamukkale": {
+      "activities": [
+        {
+          "id": "pamukkale-hierapolis-combined",
+          "name": "Pamukkale travertines + Hierapolis ruins",
+          "description": "Combined ticket covers the white calcium terraces, the Roman ruins of Hierapolis (theatre, necropolis), and the on-site archaeology museum.",
+          "pricePerPerson": 26,
+          "durationHours": 4,
+          "category": "signature",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "pamukkale-antique-pool",
+          "name": "Cleopatra's Antique Pool",
+          "description": "Swim among submerged Roman columns in a warm mineral pool — optional add-on to the main ticket.",
+          "pricePerPerson": 9,
+          "durationHours": 1.5,
+          "category": "self-guided",
+          "defaultSelected": false,
+          "sourced": true
+        }
+      ]
+    },
+    "ephesus": {
+      "activities": [
+        {
+          "id": "ephesus-entrance",
+          "name": "Ephesus ancient city",
+          "description": "One of the best-preserved Roman cities anywhere — Library of Celsus, the Great Theatre, marble streets. Go early to beat the heat and tour groups.",
+          "pricePerPerson": 34,
+          "durationHours": 3,
+          "category": "signature",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "ephesus-house-of-virgin-mary",
+          "name": "House of the Virgin Mary",
+          "description": "Small stone chapel in the hills above Ephesus, believed to be where Mary spent her final years — a quiet, contemplative stop.",
+          "pricePerPerson": 10,
+          "durationHours": 1,
+          "category": "self-guided",
+          "defaultSelected": false,
+          "sourced": false
+        }
+      ]
+    },
+    "bodrum": {
+      "activities": [
+        {
+          "id": "bodrum-boat-trip",
+          "name": "Full-day peninsula boat trip",
+          "description": "Classic Bodrum day out — cruise between turquoise bays, swim/snorkel stops, lunch on board. Standard group boats take ~40 people; smaller gulet options cost more for a quieter day.",
+          "pricePerPerson": 30,
+          "durationHours": 7,
+          "category": "signature",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "bodrum-castle-museum",
+          "name": "Bodrum Castle & Museum of Underwater Archaeology",
+          "description": "15th-century Crusader castle housing shipwreck artefacts recovered from the Aegean, including the Uluburun shipwreck finds.",
+          "pricePerPerson": 17,
+          "durationHours": 2,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": true
+        }
+      ]
+    },
+    "antalya": {
+      "activities": [
+        {
+          "id": "antalya-perge-aspendos-side",
+          "name": "Perge, Aspendos & Side day tour",
+          "description": "Full-day loop covering the Perge ruins, the extraordinarily preserved Aspendos Roman theatre (still used for opera), and the coastal ruins at Side. Usually includes lunch and hotel transfers.",
+          "pricePerPerson": 65,
+          "durationHours": 9,
+          "category": "guided",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "antalya-termessos-duden",
+          "name": "Termessos ruins + Düden Waterfalls",
+          "description": "Mountaintop Pisidian ruins (never conquered by Alexander the Great) with a hike required to reach them, paired with a stop at Düden Waterfalls on the way back.",
+          "pricePerPerson": 43,
+          "durationHours": 7,
+          "category": "guided",
+          "defaultSelected": false,
+          "sourced": false
+        },
+        {
+          "id": "antalya-kaleici-old-town",
+          "name": "Kaleiçi old town walk (self-guided)",
+          "description": "Roman harbour, Hadrian's Gate, the fluted minaret — free to wander, easily fills half a day.",
+          "pricePerPerson": 0,
+          "durationHours": 3,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": true
+        }
+      ]
+    }
+  }
+}

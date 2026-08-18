@@ -1,4 +1,4 @@
-import ActivityRow from "./ActivityRow";
+import ActivityGallery from "./ActivityGallery";
 
 export default function ActivitySelector({
   selectedDestinations,
@@ -15,28 +15,20 @@ export default function ActivitySelector({
     <div className="picker-block">
       <h2 className="picker-label">Activities</h2>
       <p className="picker-sublabel">
-        Pre-picked highlights per stop — untick what you don't want, add what
-        you do.
+        Pre-picked highlights per stop — swipe through, add or drop what you
+        want.
       </p>
       <div className="activity-groups">
-        {destinationsWithActivities.map((d) => {
-          const selectedIds = selectedActivitiesByDestination[d.id] ?? [];
-          return (
-            <div className="activity-group" key={d.id}>
-              <h3 className="activity-group-title">{d.name}</h3>
-              <div className="activity-list">
-                {d.activities.map((a) => (
-                  <ActivityRow
-                    key={a.id}
-                    activity={a}
-                    checked={selectedIds.includes(a.id)}
-                    onToggle={(id) => onToggleActivity(d.id, id)}
-                  />
-                ))}
-              </div>
-            </div>
-          );
-        })}
+        {destinationsWithActivities.map((d) => (
+          <div className="activity-group" key={d.id}>
+            <h3 className="activity-group-title">{d.name}</h3>
+            <ActivityGallery
+              activities={d.activities}
+              selectedIds={selectedActivitiesByDestination[d.id] ?? []}
+              onToggle={(activityId) => onToggleActivity(d.id, activityId)}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

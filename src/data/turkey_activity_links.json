@@ -1,0 +1,171 @@
+{
+  "_methodology": {
+    "bookingUrl": "Real URLs where a specific bookable product page exists (sourced: true). Where no single canonical booking page exists (e.g. official sites that only sell in-person, or generic ticket categories), the URL points to a genuine search/category page rather than a fabricated product link (sourced: false, labelled 'search page').",
+    "images": "No image files are hosted here — images are fetched at runtime from the Wikipedia REST API by wikipediaTitle, cached client-side. This avoids hotlinking unlicensed photos and keeps the dataset text-only.",
+    "lastUpdated": "2026-08-18"
+  },
+  "destinations": {
+    "istanbul": {
+      "activities": [
+        {
+          "id": "istanbul-bosphorus-cruise",
+          "name": "Bosphorus sightseeing cruise",
+          "bookingUrl": "https://www.viator.com/Istanbul-attractions/Bosphorus/d585-a3017",
+          "sourced": true,
+          "wikipediaTitle": "Bosphorus"
+        },
+        {
+          "id": "istanbul-hagia-sophia",
+          "name": "Hagia Sophia",
+          "bookingUrl": "https://www.getyourguide.com/istanbul-l56/basilica-cistern-hagia-sophia-with-optional-topkapi-palace-t713788/",
+          "sourced": false,
+          "sourceNote": "Hagia Sophia does not sell tickets online — this links to the nearest bookable combo product. On-site purchase only.",
+          "wikipediaTitle": "Hagia Sophia"
+        },
+        {
+          "id": "istanbul-topkapi-palace",
+          "name": "Topkapi Palace (incl. Harem)",
+          "bookingUrl": "https://topkapi-palace.com/tickets-and-audioguide-to-topkapi-palace/",
+          "sourced": true,
+          "wikipediaTitle": "Topkapı Palace"
+        },
+        {
+          "id": "istanbul-basilica-cistern",
+          "name": "Basilica Cistern",
+          "bookingUrl": "https://www.getyourguide.com/istanbul-l56/basilica-cistern-hagia-sophia-with-optional-topkapi-palace-t713788/",
+          "sourced": true,
+          "wikipediaTitle": "Basilica Cistern"
+        }
+      ]
+    },
+    "cappadocia": {
+      "activities": [
+        {
+          "id": "cappadocia-balloon",
+          "name": "Hot-air balloon flight",
+          "bookingUrl": "https://cappadociaballoonticket.com/en",
+          "sourced": true,
+          "wikipediaTitle": "Hot air balloon"
+        },
+        {
+          "id": "cappadocia-underground-valleys-tour",
+          "name": "Underground city + valleys guided tour",
+          "bookingUrl": "https://www.getyourguide.com/s/?q=cappadocia+underground+city+tour",
+          "sourced": false,
+          "sourceNote": "Search page — no single confirmed operator/price found.",
+          "wikipediaTitle": "Derinkuyu underground city"
+        },
+        {
+          "id": "cappadocia-open-air-museum",
+          "name": "Göreme Open-Air Museum",
+          "bookingUrl": "https://www.getyourguide.com/s/?q=goreme+open+air+museum",
+          "sourced": false,
+          "sourceNote": "Search page — official ticket is on-site only.",
+          "wikipediaTitle": "Göreme Open Air Museum"
+        }
+      ]
+    },
+    "gaziantep": {
+      "activities": [
+        {
+          "id": "gaziantep-zeugma-museum",
+          "name": "Zeugma Mosaic Museum",
+          "bookingUrl": "https://www.getyourguide.com/zeugma-mosaic-museum-l161841/",
+          "sourced": true,
+          "wikipediaTitle": "Zeugma Mosaic Museum"
+        },
+        {
+          "id": "gaziantep-food-tour",
+          "name": "Food tour / baklava & kebab crawl",
+          "bookingUrl": "https://www.getyourguide.com/s/?q=gaziantep+food+tour",
+          "sourced": false,
+          "sourceNote": "Search page — no single confirmed operator/price found.",
+          "wikipediaTitle": "Gaziantep cuisine"
+        }
+      ]
+    },
+    "pamukkale": {
+      "activities": [
+        {
+          "id": "pamukkale-hierapolis-combined",
+          "name": "Pamukkale travertines + Hierapolis ruins",
+          "bookingUrl": "https://turkeytravelhq.com/pamukkale-entrance-fee-2026/",
+          "sourced": true,
+          "sourceNote": "Info/pricing page — official ticket is purchased on-site, no online booking exists.",
+          "wikipediaTitle": "Pamukkale"
+        },
+        {
+          "id": "pamukkale-antique-pool",
+          "name": "Cleopatra's Antique Pool",
+          "bookingUrl": "https://turkeytravelhq.com/pamukkale-entrance-fee-2026/",
+          "sourced": true,
+          "sourceNote": "Same source as above — pool fee is an on-site add-on.",
+          "wikipediaTitle": "Hierapolis"
+        }
+      ]
+    },
+    "ephesus": {
+      "activities": [
+        {
+          "id": "ephesus-entrance",
+          "name": "Ephesus ancient city",
+          "bookingUrl": "https://www.viator.com/tours/Kusadasi/Ephesus-and-Pamukkale-Tour-in-One-Day/d582-126370P7",
+          "sourced": true,
+          "wikipediaTitle": "Ephesus"
+        },
+        {
+          "id": "ephesus-house-of-virgin-mary",
+          "name": "House of the Virgin Mary",
+          "bookingUrl": "https://www.getyourguide.com/s/?q=house+of+the+virgin+mary+ephesus",
+          "sourced": false,
+          "sourceNote": "Search page — no single confirmed operator/price found.",
+          "wikipediaTitle": "House of the Virgin Mary"
+        }
+      ]
+    },
+    "bodrum": {
+      "activities": [
+        {
+          "id": "bodrum-boat-trip",
+          "name": "Full-day peninsula boat trip",
+          "bookingUrl": "https://easybooktours.com/tours/bodrum-boat-trip-daily-boat-tour",
+          "sourced": true,
+          "wikipediaTitle": "Bodrum"
+        },
+        {
+          "id": "bodrum-castle-museum",
+          "name": "Bodrum Castle & Museum of Underwater Archaeology",
+          "bookingUrl": "https://www.bodrum-museum.com/opening-hours-fees/",
+          "sourced": true,
+          "wikipediaTitle": "Bodrum Castle"
+        }
+      ]
+    },
+    "antalya": {
+      "activities": [
+        {
+          "id": "antalya-perge-aspendos-side",
+          "name": "Perge, Aspendos & Side day tour",
+          "bookingUrl": "https://www.viator.com/tours/Antalya/Perge-Aspendos-Side-and-Waterfalls-Tour/d586-9398P323",
+          "sourced": true,
+          "wikipediaTitle": "Aspendos"
+        },
+        {
+          "id": "antalya-termessos-duden",
+          "name": "Termessos ruins + Düden Waterfalls",
+          "bookingUrl": "https://www.everydayturkeytours.com/dailyantalyatours.html",
+          "sourced": true,
+          "wikipediaTitle": "Termessos"
+        },
+        {
+          "id": "antalya-kaleici-old-town",
+          "name": "Kaleiçi old town walk (self-guided)",
+          "bookingUrl": null,
+          "sourced": true,
+          "sourceNote": "Free, self-guided — no booking link applicable.",
+          "wikipediaTitle": "Kaleiçi"
+        }
+      ]
+    }
+  }
+}
