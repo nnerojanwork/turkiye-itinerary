@@ -28,6 +28,16 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1;
+  color: var(--flag-red);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.12em;
+}
+
+.flag-badge {
+  width: 0.52em;
+  height: 0.52em;
+  flex-shrink: 0;
 }
 
 .app-subtitle {

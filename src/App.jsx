@@ -104,7 +104,22 @@ export default function App() {
     <div className="app-shell">
       <header className="app-header">
         <p className="app-kicker">Choose your own itinerary</p>
-        <h1 className="app-title">Türkiye</h1>
+        <h1 className="app-title">
+          Türkiye
+          <svg
+            className="flag-badge"
+            viewBox="0 0 100 100"
+            aria-hidden="true"
+          >
+            <circle cx="50" cy="50" r="48" fill="#e30a17" />
+            <circle cx="38" cy="50" r="26" fill="#fff" />
+            <circle cx="46" cy="50" r="26" fill="#e30a17" />
+            <polygon
+              fill="#fff"
+              points="66,41 68.06,47.17 74.56,47.22 69.33,51.08 71.29,57.28 66,53.5 60.71,57.28 62.67,51.08 57.44,47.22 63.94,47.17"
+            />
+          </svg>
+        </h1>
         <p className="app-subtitle">
           Pick a month, a trip length, and the stops that call to you — the
           route, nights, and per-person cost build themselves for a group of{" "}
