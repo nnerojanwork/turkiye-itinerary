@@ -1,0 +1,55 @@
+:root {
+  --paper: #faf6ee;
+  --paper-raised: #ffffff;
+  --ink: #241c15;
+  --ink-soft: #5c5148;
+  --ink-faint: #948a7e;
+  --rule: #e3d9c8;
+  --terracotta: #c4551f;
+  --terracotta-soft: #f1e0d2;
+  --turquoise: #1f7a72;
+  --turquoise-soft: #ddece9;
+  --gold: #c8932a;
+  --shadow: 0 12px 30px -12px rgba(36, 28, 21, 0.18);
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+
+  color-scheme: light;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 10% 5%, rgba(196, 85, 31, 0.05), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(31, 122, 114, 0.06), transparent 45%);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  color: var(--ink);
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+}
