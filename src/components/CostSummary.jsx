@@ -13,6 +13,8 @@ export default function CostSummary({ costs, groupSize, tripLength, foodPerPerso
     airbnbByStop,
     airbnbTotal,
     foodTotal,
+    selectedActivities,
+    activitiesTotal,
     perPersonTotal,
     groupTotal,
   } = costs;
@@ -60,7 +62,28 @@ export default function CostSummary({ costs, groupSize, tripLength, foodPerPerso
       </div>
 
       <div className="cost-section">
-        <div className="cost-section-title">Food & activities</div>
+        <div className="cost-section-title">Activities</div>
+        {selectedActivities.length === 0 ? (
+          <div className="cost-line">
+            <span>None selected</span>
+            <span>{gbp(0)}</span>
+          </div>
+        ) : (
+          selectedActivities.map((a) => (
+            <div className="cost-line" key={a.id}>
+              <span>{a.name}</span>
+              <span>{gbp(a.pricePerPerson)}</span>
+            </div>
+          ))
+        )}
+        <div className="cost-line cost-line-subtotal">
+          <span>Activities subtotal</span>
+          <span>{gbp(activitiesTotal)}</span>
+        </div>
+      </div>
+
+      <div className="cost-section">
+        <div className="cost-section-title">Food</div>
         <div className="cost-line">
           <span>
             {gbp(foodPerPersonPerDay)}/day × {tripLength} days

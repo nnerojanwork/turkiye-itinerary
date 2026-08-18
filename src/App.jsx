@@ -5,23 +5,35 @@ import MonthPicker from "./components/MonthPicker";
 import TripLengthPicker from "./components/TripLengthPicker";
 import DestinationSelector from "./components/DestinationSelector";
 import NightAllocator from "./components/NightAllocator";
+import ActivitySelector from "./components/ActivitySelector";
 import RouteTimeline from "./components/RouteTimeline";
 import CostSummary from "./components/CostSummary";
 import "./App.css";
 
 const sortedDestinations = [...destinations].sort((a, b) => a.order - b.order);
 const gatewayId = sortedDestinations.find((d) => d.isGateway)?.id;
+const destinationsById = Object.fromEntries(sortedDestinations.map((d) => [d.id, d]));
+
+function defaultActivityIds(destinationId) {
+  return (destinationsById[destinationId]?.activities ?? [])
+    .filter((a) => a.defaultSelected)
+    .map((a) => a.id);
+}
+
+const initialSelectedIds = [gatewayId, "cappadocia", "pamukkale"];
 
 export default function App() {
   const [month, setMonth] = useState("jun");
   const [tripLength, setTripLength] = useState(10);
-  const [selectedIds, setSelectedIds] = useState([
-    gatewayId,
-    "cappadocia",
-    "pamukkale",
-  ]);
+  const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
   const [nightsByDestination, setNightsByDestination] = useState({});
   const [manuallyEdited, setManuallyEdited] = useState(false);
+  const [selectedActivitiesByDestination, setSelectedActivitiesByDestination] = useState(
+    () =>
+      Object.fromEntries(
+        initialSelectedIds.map((id) => [id, defaultActivityIds(id)])
+      )
+  );
 
   const selectedDestinations = useMemo(
     () => sortedDestinations.filter((d) => selectedIds.includes(d.id)),
@@ -41,6 +53,13 @@ export default function App() {
     setSelectedIds((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
     );
+    setSelectedActivitiesByDestination((prev) => {
+      if (prev[id]) {
+        const { [id]: _removed, ...rest } = prev;
+        return rest;
+      }
+      return { ...prev, [id]: defaultActivityIds(id) };
+    });
   }
 
   function adjustNights(id, delta) {
@@ -51,17 +70,34 @@ export default function App() {
     }));
   }
 
+  function toggleActivity(destinationId, activityId) {
+    setSelectedActivitiesByDestination((prev) => {
+      const current = prev[destinationId] ?? [];
+      const next = current.includes(activityId)
+        ? current.filter((a) => a !== activityId)
+        : [...current, activityId];
+      return { ...prev, [destinationId]: next };
+    });
+  }
+
   const costs = useMemo(
     () =>
       calculateCosts({
         selectedDestinations,
         nightsByDestination,
+        selectedActivitiesByDestination,
         month,
         tripLength,
         groupSize: defaults.groupSize,
-        foodPerPersonPerDay: defaults.foodAndActivitiesPerPersonPerDay,
+        foodPerPersonPerDay: defaults.foodPerPersonPerDay,
       }),
-    [selectedDestinations, nightsByDestination, month, tripLength]
+    [
+      selectedDestinations,
+      nightsByDestination,
+      selectedActivitiesByDestination,
+      month,
+      tripLength,
+    ]
   );
 
   return (
@@ -93,6 +129,11 @@ export default function App() {
               onAdjust={adjustNights}
             />
           )}
+          <ActivitySelector
+            selectedDestinations={selectedDestinations}
+            selectedActivitiesByDestination={selectedActivitiesByDestination}
+            onToggleActivity={toggleActivity}
+          />
           {selectedDestinations.length > 0 && (
             <RouteTimeline
               selectedDestinations={selectedDestinations}
@@ -105,7 +146,7 @@ export default function App() {
           costs={costs}
           groupSize={defaults.groupSize}
           tripLength={tripLength}
-          foodPerPersonPerDay={defaults.foodAndActivitiesPerPersonPerDay}
+          foodPerPersonPerDay={defaults.foodPerPersonPerDay}
         />
       </main>
     </div>

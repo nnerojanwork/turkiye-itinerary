@@ -1,5 +1,13 @@
 // All prices in GBP, per person unless noted.
 // Placeholder figures — tune freely, nothing else in the app hardcodes numbers.
+//
+// Activity prices were sourced in EUR and converted at a fixed placeholder
+// rate (see EUR_TO_GBP) so they total cleanly against the GBP flight/Airbnb
+// figures above. Re-convert at the live rate before using this for a real
+// pitch, and note that entries with sourced: false are estimates, not
+// confirmed prices — verify before including in a budget.
+const EUR_TO_GBP = 0.86;
+const gbp = (eur) => Math.round(eur * EUR_TO_GBP);
 
 export const MONTHS = [
   "jan", "feb", "mar", "apr", "may", "jun",
@@ -30,6 +38,48 @@ export const destinations = [
       jan: 140, feb: 145, mar: 160, apr: 180, may: 195, jun: 215,
       jul: 225, aug: 225, sep: 205, oct: 185, nov: 155, dec: 175,
     },
+    activities: [
+      {
+        id: "istanbul-bosphorus-cruise",
+        name: "Bosphorus sightseeing cruise",
+        description: "Sail between two continents past Dolmabahçe Palace, Ortaköy Mosque and the Bosphorus Bridge. Public ferry is the budget option; private sightseeing boats add a live guide.",
+        pricePerPerson: gbp(18),
+        durationHours: 1.5,
+        category: "signature",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "istanbul-hagia-sophia",
+        name: "Hagia Sophia",
+        description: "Byzantine cathedral turned mosque turned museum turned mosque again — 1,500 years of architectural history in one building.",
+        pricePerPerson: gbp(25),
+        durationHours: 1.5,
+        category: "self-guided",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "istanbul-topkapi-palace",
+        name: "Topkapi Palace (incl. Harem)",
+        description: "Ottoman sultans' residence for 400 years — courtyards, treasury, and the Harem quarters. Closed Tuesdays.",
+        pricePerPerson: gbp(55),
+        durationHours: 3,
+        category: "self-guided",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "istanbul-basilica-cistern",
+        name: "Basilica Cistern",
+        description: "6th-century underground reservoir with 336 columns, including the famous upside-down Medusa heads.",
+        pricePerPerson: gbp(40),
+        durationHours: 1,
+        category: "self-guided",
+        defaultSelected: false,
+        sourced: true,
+      },
+    ],
   },
   {
     id: "cappadocia",
@@ -47,6 +97,38 @@ export const destinations = [
       jan: 150, feb: 155, mar: 175, apr: 210, may: 230, jun: 220,
       jul: 210, aug: 205, sep: 225, oct: 220, nov: 165, dec: 160,
     },
+    activities: [
+      {
+        id: "cappadocia-balloon",
+        name: "Hot-air balloon flight",
+        description: "Dawn flight over fairy chimneys and valleys — the single most-photographed thing to do in Turkey. Weather-dependent; don't book on your last morning. Groups of 8 often get a 10-15% discount.",
+        pricePerPerson: gbp(180),
+        durationHours: 1,
+        category: "signature",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "cappadocia-underground-valleys-tour",
+        name: "Underground city + valleys guided tour",
+        description: "Derinkuyu or Kaymaklı underground city plus Selime and valley viewpoints — sights are spread out, worth a driver/guide over DIY.",
+        pricePerPerson: gbp(45),
+        durationHours: 6,
+        category: "guided",
+        defaultSelected: false,
+        sourced: false,
+      },
+      {
+        id: "cappadocia-open-air-museum",
+        name: "Göreme Open-Air Museum",
+        description: "UNESCO site of rock-cut churches with Byzantine frescoes, walkable from central Göreme.",
+        pricePerPerson: gbp(15),
+        durationHours: 2,
+        category: "self-guided",
+        defaultSelected: true,
+        sourced: false,
+      },
+    ],
   },
   {
     id: "gaziantep",
@@ -64,6 +146,28 @@ export const destinations = [
       jan: 90, feb: 90, mar: 95, apr: 100, may: 105, jun: 115,
       jul: 120, aug: 120, sep: 110, oct: 100, nov: 90, dec: 95,
     },
+    activities: [
+      {
+        id: "gaziantep-zeugma-museum",
+        name: "Zeugma Mosaic Museum",
+        description: "World's largest mosaic museum, home to the famous 'Gypsy Girl' — Roman mosaics rescued from the Zeugma site before it was flooded by a dam.",
+        pricePerPerson: gbp(7),
+        durationHours: 1.5,
+        category: "self-guided",
+        defaultSelected: true,
+        sourced: false,
+      },
+      {
+        id: "gaziantep-food-tour",
+        name: "Food tour / baklava & kebab crawl",
+        description: "Gaziantep is UNESCO Creative City of Gastronomy — a guided food tour through the copper bazaar and baklava houses is the best way to do the region justice.",
+        pricePerPerson: gbp(50),
+        durationHours: 3,
+        category: "guided",
+        defaultSelected: true,
+        sourced: false,
+      },
+    ],
   },
   {
     id: "pamukkale",
@@ -81,6 +185,28 @@ export const destinations = [
       jan: 105, feb: 105, mar: 115, apr: 130, may: 140, jun: 150,
       jul: 155, aug: 155, sep: 145, oct: 130, nov: 110, dec: 110,
     },
+    activities: [
+      {
+        id: "pamukkale-hierapolis-combined",
+        name: "Pamukkale travertines + Hierapolis ruins",
+        description: "Combined ticket covers the white calcium terraces, the Roman ruins of Hierapolis (theatre, necropolis), and the on-site archaeology museum.",
+        pricePerPerson: gbp(30),
+        durationHours: 4,
+        category: "signature",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "pamukkale-antique-pool",
+        name: "Cleopatra's Antique Pool",
+        description: "Swim among submerged Roman columns in a warm mineral pool — optional add-on to the main ticket.",
+        pricePerPerson: gbp(10),
+        durationHours: 1.5,
+        category: "self-guided",
+        defaultSelected: false,
+        sourced: true,
+      },
+    ],
   },
   {
     id: "ephesus",
@@ -98,6 +224,28 @@ export const destinations = [
       jan: 100, feb: 100, mar: 110, apr: 125, may: 135, jun: 145,
       jul: 150, aug: 150, sep: 140, oct: 125, nov: 105, dec: 105,
     },
+    activities: [
+      {
+        id: "ephesus-entrance",
+        name: "Ephesus ancient city",
+        description: "One of the best-preserved Roman cities anywhere — Library of Celsus, the Great Theatre, marble streets. Go early to beat the heat and tour groups.",
+        pricePerPerson: gbp(40),
+        durationHours: 3,
+        category: "signature",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "ephesus-house-of-virgin-mary",
+        name: "House of the Virgin Mary",
+        description: "Small stone chapel in the hills above Ephesus, believed to be where Mary spent her final years — a quiet, contemplative stop.",
+        pricePerPerson: gbp(12),
+        durationHours: 1,
+        category: "self-guided",
+        defaultSelected: false,
+        sourced: false,
+      },
+    ],
   },
   {
     id: "bodrum",
@@ -115,6 +263,28 @@ export const destinations = [
       jan: 150, feb: 150, mar: 170, apr: 220, may: 280, jun: 340,
       jul: 395, aug: 400, sep: 330, oct: 245, nov: 165, dec: 155,
     },
+    activities: [
+      {
+        id: "bodrum-boat-trip",
+        name: "Full-day peninsula boat trip",
+        description: "Classic Bodrum day out — cruise between turquoise bays, swim/snorkel stops, lunch on board. Standard group boats take ~40 people; smaller gulet options cost more for a quieter day.",
+        pricePerPerson: gbp(35),
+        durationHours: 7,
+        category: "signature",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "bodrum-castle-museum",
+        name: "Bodrum Castle & Museum of Underwater Archaeology",
+        description: "15th-century Crusader castle housing shipwreck artefacts recovered from the Aegean, including the Uluburun shipwreck finds.",
+        pricePerPerson: gbp(20),
+        durationHours: 2,
+        category: "self-guided",
+        defaultSelected: true,
+        sourced: true,
+      },
+    ],
   },
   {
     id: "antalya",
@@ -132,10 +302,42 @@ export const destinations = [
       jan: 140, feb: 140, mar: 160, apr: 205, may: 255, jun: 310,
       jul: 360, aug: 370, sep: 300, oct: 225, nov: 155, dec: 145,
     },
+    activities: [
+      {
+        id: "antalya-perge-aspendos-side",
+        name: "Perge, Aspendos & Side day tour",
+        description: "Full-day loop covering the Perge ruins, the extraordinarily preserved Aspendos Roman theatre (still used for opera), and the coastal ruins at Side. Usually includes lunch and hotel transfers.",
+        pricePerPerson: gbp(75),
+        durationHours: 9,
+        category: "guided",
+        defaultSelected: true,
+        sourced: true,
+      },
+      {
+        id: "antalya-termessos-duden",
+        name: "Termessos ruins + Düden Waterfalls",
+        description: "Mountaintop Pisidian ruins (never conquered by Alexander the Great) with a hike required to reach them, paired with a stop at Düden Waterfalls on the way back.",
+        pricePerPerson: gbp(50),
+        durationHours: 7,
+        category: "guided",
+        defaultSelected: false,
+        sourced: false,
+      },
+      {
+        id: "antalya-kaleici-old-town",
+        name: "Kaleiçi old town walk (self-guided)",
+        description: "Roman harbour, Hadrian's Gate, the fluted minaret — free to wander, easily fills half a day.",
+        pricePerPerson: gbp(0),
+        durationHours: 3,
+        category: "self-guided",
+        defaultSelected: true,
+        sourced: true,
+      },
+    ],
   },
 ];
 
 export const defaults = {
   groupSize: 8,
-  foodAndActivitiesPerPersonPerDay: 35,
+  foodPerPersonPerDay: 35,
 };

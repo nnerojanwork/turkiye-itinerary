@@ -38,6 +38,7 @@ export function suggestNightAllocation(selectedDestinations, tripLength) {
 export function calculateCosts({
   selectedDestinations,
   nightsByDestination,
+  selectedActivitiesByDestination,
   month,
   tripLength,
   groupSize,
@@ -63,7 +64,19 @@ export function calculateCosts({
 
   const foodTotal = foodPerPersonPerDay * tripLength;
 
-  const perPersonTotal = flightsTotal + airbnbTotal + foodTotal;
+  const selectedActivities = selectedDestinations.flatMap((d) => {
+    const selectedIds = selectedActivitiesByDestination[d.id] ?? [];
+    return (d.activities ?? [])
+      .filter((a) => selectedIds.includes(a.id))
+      .map((a) => ({ ...a, destinationId: d.id, destinationName: d.name }));
+  });
+
+  const activitiesTotal = selectedActivities.reduce(
+    (sum, a) => sum + a.pricePerPerson,
+    0
+  );
+
+  const perPersonTotal = flightsTotal + airbnbTotal + foodTotal + activitiesTotal;
   const groupTotal = perPersonTotal * groupSize;
 
   return {
@@ -73,6 +86,8 @@ export function calculateCosts({
     airbnbByStop,
     airbnbTotal,
     foodTotal,
+    selectedActivities,
+    activitiesTotal,
     perPersonTotal,
     groupTotal,
   };
