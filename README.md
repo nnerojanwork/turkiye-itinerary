@@ -51,6 +51,19 @@ prices were sourced in EUR and converted to GBP at a fixed placeholder rate
 (see `turkey_activities.json`). Entries marked `sourced: false` are estimates
 — verify before using this for a real budget.
 
+## Tabs
+
+- **Build Your Trip** — the interactive builder described above.
+- **What to Eat** — browse-only dish gallery, no cost impact.
+- **Quick Trip vs. Full Odyssey** — a pitch/framing tab with two fixed
+  presets ([`presets.js`](src/data/presets.js)): a 5-day Istanbul + Antalya
+  trip and a 14-day six-stop trip. Both night splits come from
+  `suggestNightAllocation` and both costs from `calculateCosts` — the same
+  functions the main builder uses, just fed fixed inputs. Each preset's
+  "Customize from here" button applies its destinations/nights/month to
+  the Build Your Trip tab's state and switches to it, so the pitch tab is
+  an entry point into the real builder rather than a dead end.
+
 ## Development
 
 ```bash

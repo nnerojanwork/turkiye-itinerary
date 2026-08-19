@@ -9,12 +9,15 @@ import ActivitySelector from "./components/ActivitySelector";
 import RouteTimeline from "./components/RouteTimeline";
 import CostSummary from "./components/CostSummary";
 import FoodExplorer from "./components/FoodExplorer";
+import ComparisonTab from "./components/ComparisonTab";
 import { dishes } from "./data/food";
+import { buildPresets } from "./data/presets";
 import "./App.css";
 
 const sortedDestinations = [...destinations].sort((a, b) => a.order - b.order);
 const gatewayId = sortedDestinations.find((d) => d.isGateway)?.id;
 const destinationsById = Object.fromEntries(sortedDestinations.map((d) => [d.id, d]));
+const presets = buildPresets(sortedDestinations);
 
 function defaultActivityIds(destinationId) {
   return (destinationsById[destinationId]?.activities ?? [])
@@ -79,6 +82,18 @@ export default function App() {
     setActiveTab("food");
   }
 
+  function applyPreset(presetKey) {
+    const preset = presets[presetKey];
+    if (!preset) return;
+    setSelectedIds(preset.destinationIds);
+    setTripLength(preset.tripLength);
+    setMonth(preset.month);
+    setNightsByDestination(preset.nights);
+    setManuallyEdited(true);
+    setSelectedActivitiesByDestination(preset.activities);
+    setActiveTab("itinerary");
+  }
+
   function toggleActivity(destinationId, activityId) {
     setSelectedActivitiesByDestination((prev) => {
       const current = prev[destinationId] ?? [];
@@ -140,7 +155,7 @@ export default function App() {
             className={`app-tab ${activeTab === "itinerary" ? "is-active" : ""}`}
             onClick={() => setActiveTab("itinerary")}
           >
-            Itinerary
+            Build Your Trip
           </button>
           <button
             type="button"
@@ -148,6 +163,13 @@ export default function App() {
             onClick={() => setActiveTab("food")}
           >
             What to Eat
+          </button>
+          <button
+            type="button"
+            className={`app-tab ${activeTab === "compare" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("compare")}
+          >
+            Quick Trip vs. Full Odyssey
           </button>
         </nav>
       </header>
@@ -191,13 +213,21 @@ export default function App() {
             foodPerPersonPerDay={defaults.foodPerPersonPerDay}
           />
         </main>
-      ) : (
+      ) : activeTab === "food" ? (
         <main className="app-main app-main-single">
           <FoodExplorer
             dishes={dishes}
             destinationsById={destinationsById}
             regionFilter={foodRegionFilter}
             onClearRegionFilter={() => setFoodRegionFilter(null)}
+          />
+        </main>
+      ) : (
+        <main className="app-main app-main-single">
+          <ComparisonTab
+            presets={presets}
+            allDestinations={sortedDestinations}
+            onCustomize={applyPreset}
           />
         </main>
       )}
