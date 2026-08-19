@@ -1,0 +1,124 @@
+{
+  "_methodology": {
+    "note": "Cappadocia, Gaziantep and Pamukkale are inland — honest distances are given rather than stretching the definition of 'nearby'. Antalya and Bodrum are themselves coastal so their beaches are effectively in-town.",
+    "lastUpdated": "2026-08-18"
+  },
+  "destinations": {
+    "istanbul": {
+      "beaches": [
+        {
+          "id": "buyukada-beach",
+          "name": "Büyükada (Princes' Islands)",
+          "distanceFromCenter": "~45-55 min by fast ferry from Eminönü/Kabataş",
+          "description": "Largest of the car-free Princes' Islands — small rocky/pebble coves rather than a big sandy stretch, but the pine-forest, horse-drawn-carriage atmosphere makes the trip worthwhile beyond just swimming.",
+          "sourced": true,
+          "wikipediaTitle": "Büyükada"
+        },
+        {
+          "id": "kilyos-beach",
+          "name": "Kilyos",
+          "distanceFromCenter": "~45min-1hr by car/bus, Black Sea coast",
+          "description": "Istanbul's main sandy-beach escape — wide shore, beach clubs (Solar, Suma) with a party atmosphere on weekends. Black Sea water is colder and rougher than the Marmara side, with real currents worth respecting.",
+          "sourced": true,
+          "wikipediaTitle": "Kilyos"
+        },
+        {
+          "id": "florya-beach",
+          "name": "Florya",
+          "distanceFromCenter": "~20-30 min from downtown",
+          "description": "The closest beach option to central Istanbul, on the calmer Sea of Marmara — a quick, low-commitment swim rather than a full beach day.",
+          "sourced": true,
+          "wikipediaTitle": "Florya"
+        }
+      ]
+    },
+    "cappadocia": {
+      "beaches": [],
+      "note": "Landlocked — nearest coast (Mediterranean via Antalya, or Aegean) is 3-4+ hours by road. Not a realistic beach day trip from here; pair a coastal leg elsewhere in the itinerary instead."
+    },
+    "gaziantep": {
+      "beaches": [],
+      "note": "Inland — nearest coast (Mediterranean around İskenderun/Hatay) is roughly 2 hours by road. Doable as a stretch day trip but not genuinely 'nearby'."
+    },
+    "pamukkale": {
+      "beaches": [],
+      "note": "Inland — nearest Aegean coast (Kuşadası area) is roughly 2 hours by road. The Antique travertine pools themselves are the closest thing to a 'swim' here."
+    },
+    "ephesus": {
+      "beaches": [
+        {
+          "id": "pamucak-beach",
+          "name": "Pamucak Beach",
+          "distanceFromCenter": "~15-20 min from Selçuk, ~20 min from Kuşadası",
+          "description": "Wide, dark-golden sand backing directly onto the Aegean, and the closest real beach to the Ephesus ruins — genuinely easy to combine a ruins morning with a beach afternoon.",
+          "sourced": true,
+          "wikipediaTitle": "Pamucak"
+        },
+        {
+          "id": "ladies-beach-kusadasi",
+          "name": "Ladies Beach (Kadınlar Denizi), Kuşadası",
+          "distanceFromCenter": "~20 min from Selçuk",
+          "description": "Kuşadası's most popular in-town beach — sandy, calm, and lined with cafes, though it gets crowded in peak summer.",
+          "sourced": true,
+          "wikipediaTitle": "Kuşadası"
+        }
+      ]
+    },
+    "bodrum": {
+      "beaches": [
+        {
+          "id": "gumbet-beach",
+          "name": "Gümbet",
+          "distanceFromCenter": "~10 min from Bodrum town",
+          "description": "The liveliest beach on the peninsula — watersports and a busy bar strip, sandy shore.",
+          "sourced": true,
+          "wikipediaTitle": "Gümbet"
+        },
+        {
+          "id": "gumusluk-beach",
+          "name": "Gümüşlük",
+          "distanceFromCenter": "~30 min from Bodrum town",
+          "description": "Quieter, more low-key end of the peninsula — small coves, sunset seafood restaurants, and the submerged ruins of ancient Myndos just offshore.",
+          "sourced": true,
+          "wikipediaTitle": "Gümüşlük"
+        },
+        {
+          "id": "ortakent-yalisi",
+          "name": "Ortakent Yalısı",
+          "distanceFromCenter": "~20 min from Bodrum town",
+          "description": "Longer sandy stretch, more residential and relaxed than Gümbet — good middle-ground option for a group wanting space rather than a club scene.",
+          "sourced": true,
+          "wikipediaTitle": "Ortakent"
+        }
+      ]
+    },
+    "antalya": {
+      "beaches": [
+        {
+          "id": "konyaalti-beach",
+          "name": "Konyaaltı",
+          "distanceFromCenter": "In city, west side",
+          "description": "Long pebble beach with a dramatic backdrop of the Beydağları mountains — promenade lined with cafes and a beach park.",
+          "sourced": true,
+          "wikipediaTitle": "Konyaaltı"
+        },
+        {
+          "id": "lara-beach",
+          "name": "Lara Beach",
+          "distanceFromCenter": "~15 min east of city center",
+          "description": "Antalya's main sandy beach (Konyaaltı is pebble), backed by the resort strip — the go-to if the group wants actual sand underfoot.",
+          "sourced": true,
+          "wikipediaTitle": "Lara, Antalya"
+        },
+        {
+          "id": "phaselis-beach",
+          "name": "Phaselis",
+          "distanceFromCenter": "~1hr south of Antalya",
+          "description": "A genuine two-for-one: swim in a small bay directly beside the ruins of an ancient Lycian harbour city, pine forest right down to the water.",
+          "sourced": true,
+          "wikipediaTitle": "Phaselis"
+        }
+      ]
+    }
+  }
+}

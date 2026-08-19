@@ -8,6 +8,8 @@ import NightAllocator from "./components/NightAllocator";
 import ActivitySelector from "./components/ActivitySelector";
 import RouteTimeline from "./components/RouteTimeline";
 import CostSummary from "./components/CostSummary";
+import FoodExplorer from "./components/FoodExplorer";
+import { dishes } from "./data/food";
 import "./App.css";
 
 const sortedDestinations = [...destinations].sort((a, b) => a.order - b.order);
@@ -23,6 +25,8 @@ function defaultActivityIds(destinationId) {
 const initialSelectedIds = [gatewayId, "cappadocia", "pamukkale"];
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState("itinerary");
+  const [foodRegionFilter, setFoodRegionFilter] = useState(null);
   const [month, setMonth] = useState("jun");
   const [tripLength, setTripLength] = useState(10);
   const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
@@ -68,6 +72,11 @@ export default function App() {
       ...prev,
       [id]: Math.max(1, (prev[id] ?? 1) + delta),
     }));
+  }
+
+  function viewFoodForDestination(destinationId) {
+    setFoodRegionFilter(destinationId);
+    setActiveTab("food");
   }
 
   function toggleActivity(destinationId, activityId) {
@@ -125,45 +134,73 @@ export default function App() {
           route, nights, and per-person cost build themselves for a group of{" "}
           {defaults.groupSize}.
         </p>
+        <nav className="app-tabs">
+          <button
+            type="button"
+            className={`app-tab ${activeTab === "itinerary" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("itinerary")}
+          >
+            Itinerary
+          </button>
+          <button
+            type="button"
+            className={`app-tab ${activeTab === "food" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("food")}
+          >
+            What to Eat
+          </button>
+        </nav>
       </header>
 
-      <main className="app-main">
-        <div className="app-controls">
-          <MonthPicker month={month} onChange={setMonth} />
-          <TripLengthPicker tripLength={tripLength} onChange={setTripLength} />
-          <DestinationSelector
-            destinations={sortedDestinations}
-            selectedIds={selectedIds}
-            onToggle={toggleDestination}
-          />
-          {selectedDestinations.length > 0 && (
-            <NightAllocator
-              selectedDestinations={selectedDestinations}
-              nightsByDestination={nightsByDestination}
-              tripLength={tripLength}
-              onAdjust={adjustNights}
+      {activeTab === "itinerary" ? (
+        <main className="app-main">
+          <div className="app-controls">
+            <MonthPicker month={month} onChange={setMonth} />
+            <TripLengthPicker tripLength={tripLength} onChange={setTripLength} />
+            <DestinationSelector
+              destinations={sortedDestinations}
+              selectedIds={selectedIds}
+              onToggle={toggleDestination}
             />
-          )}
-          <ActivitySelector
-            selectedDestinations={selectedDestinations}
-            selectedActivitiesByDestination={selectedActivitiesByDestination}
-            onToggleActivity={toggleActivity}
-          />
-          {selectedDestinations.length > 0 && (
-            <RouteTimeline
+            {selectedDestinations.length > 0 && (
+              <NightAllocator
+                selectedDestinations={selectedDestinations}
+                nightsByDestination={nightsByDestination}
+                tripLength={tripLength}
+                onAdjust={adjustNights}
+              />
+            )}
+            <ActivitySelector
               selectedDestinations={selectedDestinations}
-              nightsByDestination={nightsByDestination}
+              selectedActivitiesByDestination={selectedActivitiesByDestination}
+              onToggleActivity={toggleActivity}
+              onViewFoodForDestination={viewFoodForDestination}
             />
-          )}
-        </div>
+            {selectedDestinations.length > 0 && (
+              <RouteTimeline
+                selectedDestinations={selectedDestinations}
+                nightsByDestination={nightsByDestination}
+              />
+            )}
+          </div>
 
-        <CostSummary
-          costs={costs}
-          groupSize={defaults.groupSize}
-          tripLength={tripLength}
-          foodPerPersonPerDay={defaults.foodPerPersonPerDay}
-        />
-      </main>
+          <CostSummary
+            costs={costs}
+            groupSize={defaults.groupSize}
+            tripLength={tripLength}
+            foodPerPersonPerDay={defaults.foodPerPersonPerDay}
+          />
+        </main>
+      ) : (
+        <main className="app-main app-main-single">
+          <FoodExplorer
+            dishes={dishes}
+            destinationsById={destinationsById}
+            regionFilter={foodRegionFilter}
+            onClearRegionFilter={() => setFoodRegionFilter(null)}
+          />
+        </main>
+      )}
     </div>
   );
 }

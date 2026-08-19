@@ -3,6 +3,7 @@
 // see ./activities.js for how it's merged in. Nothing here is hardcoded in components.
 
 import { activitiesByDestination } from "./activities";
+import { beachesByDestination } from "./beaches";
 
 export const MONTHS = [
   "jan", "feb", "mar", "apr", "may", "jun",
@@ -147,6 +148,8 @@ const baseDestinations = [
 export const destinations = baseDestinations.map((d) => ({
   ...d,
   activities: activitiesByDestination[d.id] ?? [],
+  beaches: beachesByDestination[d.id]?.beaches ?? [],
+  beachesNote: beachesByDestination[d.id]?.note ?? null,
 }));
 
 export const defaults = {

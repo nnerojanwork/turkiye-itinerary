@@ -1,0 +1,209 @@
+{
+  "_methodology": {
+    "note": "Dish descriptions reflect standard/traditional preparations — regional variation is common and callouts flag where a dish is strongly associated with one destination.",
+    "categories": ["light", "decadent", "dessert", "specialty"],
+    "images": "Use wikipediaTitle with the same Wikipedia REST API pattern as activities/destinations for runtime image fetching."
+  },
+  "dishes": [
+    {
+      "id": "coban-salatasi",
+      "name": "Shepherd's Salad",
+      "turkishName": "Çoban Salatası",
+      "category": "light",
+      "description": "Finely diced tomato, cucumber, green pepper, onion and parsley dressed simply in olive oil and lemon — the standard opener at almost any meal, and naturally vegan.",
+      "dietary": ["vegan", "vegetarian", "gluten-free"],
+      "availableEverywhere": true,
+      "wikipediaTitle": "Shepherd salad"
+    },
+    {
+      "id": "mercimek-corbasi",
+      "name": "Red Lentil Soup",
+      "turkishName": "Mercimek Çorbası",
+      "category": "light",
+      "description": "Silky, blended red lentil soup with cumin and a squeeze of lemon — filling, protein-forward, and the go-to comfort starter on menus everywhere.",
+      "dietary": ["vegetarian", "vegan-adaptable"],
+      "availableEverywhere": true,
+      "wikipediaTitle": "Lentil soup"
+    },
+    {
+      "id": "zeytinyagli-yaprak-sarma",
+      "name": "Olive Oil-Braised Stuffed Vine Leaves",
+      "turkishName": "Zeytinyağlı Yaprak Sarma",
+      "category": "light",
+      "description": "Vine leaves rolled around rice, pine nuts and currants, cooked slowly in olive oil and served cold — part of the wider 'zeytinyağlılar' (olive-oil dishes) tradition that's naturally vegan and lighter than meat-based mezes.",
+      "dietary": ["vegan", "vegetarian"],
+      "availableEverywhere": true,
+      "wikipediaTitle": "Dolma"
+    },
+    {
+      "id": "ezme",
+      "name": "Spicy Tomato & Pepper Dip",
+      "turkishName": "Ezme",
+      "category": "light",
+      "description": "Finely chopped tomato, onion, and hot pepper with pomegranate molasses and olive oil — a bright, low-fat meze eaten scooped up with bread.",
+      "dietary": ["vegan", "vegetarian"],
+      "availableEverywhere": true,
+      "wikipediaTitle": "Turkish meze"
+    },
+    {
+      "id": "izgara-levrek",
+      "name": "Grilled Sea Bass",
+      "turkishName": "Izgara Levrek",
+      "category": "light",
+      "description": "Simply grilled whole sea bass with lemon and olive oil — the standard light, high-protein option at any coastal fish restaurant, especially strong in Bodrum and Istanbul's Bosphorus fish taverns.",
+      "dietary": ["pescatarian", "gluten-free"],
+      "regionHighlight": ["bodrum", "istanbul"],
+      "wikipediaTitle": "European seabass"
+    },
+    {
+      "id": "iskender-kebab",
+      "name": "İskender Kebab",
+      "turkishName": "İskender Kebap",
+      "category": "decadent",
+      "description": "Thin-sliced döner over cubed pita, smothered in tomato sauce, hot browned butter and a side of yogurt — rich, filling, and one of the country's most famous kebab dishes (originating in Bursa but ubiquitous nationwide).",
+      "dietary": [],
+      "availableEverywhere": true,
+      "wikipediaTitle": "İskender kebap"
+    },
+    {
+      "id": "testi-kebabi",
+      "name": "Pottery Kebab",
+      "turkishName": "Testi Kebabı",
+      "category": "decadent",
+      "description": "Lamb or beef slow-cooked with vegetables inside a sealed clay pot, then cracked open tableside — a Cappadocia signature, often flambeed for effect in tourist restaurants around Göreme and Ürgüp.",
+      "dietary": [],
+      "regionHighlight": ["cappadocia"],
+      "wikipediaTitle": "Testi kebabı"
+    },
+    {
+      "id": "ali-nazik",
+      "name": "Ali Nazik",
+      "turkishName": "Ali Nazik",
+      "category": "decadent",
+      "description": "Smoked, mashed eggplant folded with garlicky yogurt and topped with sizzling minced lamb — a Gaziantep classic and one of the richer dishes in the regional repertoire.",
+      "dietary": [],
+      "regionHighlight": ["gaziantep"],
+      "wikipediaTitle": "Ali Nazik"
+    },
+    {
+      "id": "kuzu-tandir",
+      "name": "Slow-Roasted Lamb",
+      "turkishName": "Kuzu Tandır",
+      "category": "decadent",
+      "description": "Lamb shoulder or leg slow-roasted until it falls off the bone — a hearty, fall-apart-tender centerpiece dish found across the country's kebab houses.",
+      "dietary": [],
+      "availableEverywhere": true,
+      "wikipediaTitle": "Tandır"
+    },
+    {
+      "id": "baklava",
+      "name": "Baklava",
+      "turkishName": "Baklava",
+      "category": "dessert",
+      "description": "Layers of paper-thin phyllo, crushed pistachio, and syrup — Gaziantep is the acknowledged capital and holds an EU-recognized geographical indication for its version, made with Antep pistachios.",
+      "dietary": ["vegetarian"],
+      "regionHighlight": ["gaziantep"],
+      "wikipediaTitle": "Baklava"
+    },
+    {
+      "id": "kunefe",
+      "name": "Künefe",
+      "turkishName": "Künefe",
+      "category": "dessert",
+      "description": "Shredded kadayıf pastry layered around melted cheese, baked and drenched in syrup, served hot — the sweet-savory dessert most associated with Hatay/Gaziantep but found across the south and east.",
+      "dietary": ["vegetarian"],
+      "regionHighlight": ["gaziantep"],
+      "wikipediaTitle": "Künefe"
+    },
+    {
+      "id": "lokma",
+      "name": "Lokma",
+      "turkishName": "Lokma",
+      "category": "dessert",
+      "description": "Small deep-fried dough balls soaked in syrup — a street-food dessert classic, often sold warm from carts around Istanbul.",
+      "dietary": ["vegetarian"],
+      "regionHighlight": ["istanbul"],
+      "wikipediaTitle": "Lokma"
+    },
+    {
+      "id": "sutlac",
+      "name": "Rice Pudding",
+      "turkishName": "Fırın Sütlaç",
+      "category": "dessert",
+      "description": "Baked rice pudding with a caramelized top — lighter and less syrup-heavy than baklava or künefe, a gentler way to end a meal.",
+      "dietary": ["vegetarian", "gluten-free"],
+      "availableEverywhere": true,
+      "wikipediaTitle": "Rice pudding"
+    },
+    {
+      "id": "lokum",
+      "name": "Turkish Delight",
+      "turkishName": "Lokum",
+      "category": "dessert",
+      "description": "Soft, starch-set cubes flavored with rosewater, pistachio, or pomegranate and dusted in powdered sugar — the classic bazaar souvenir, especially associated with Istanbul's Spice Bazaar stalls.",
+      "dietary": ["vegetarian", "vegan-adaptable", "gluten-free"],
+      "regionHighlight": ["istanbul"],
+      "wikipediaTitle": "Turkish delight"
+    },
+    {
+      "id": "balik-ekmek",
+      "name": "Fish Sandwich",
+      "turkishName": "Balık Ekmek",
+      "category": "specialty",
+      "description": "Grilled mackerel in bread with onion, lettuce and a squeeze of lemon, traditionally sold from boats bobbing at the Galata Bridge — Istanbul street food at its most iconic.",
+      "dietary": ["pescatarian"],
+      "regionHighlight": ["istanbul"],
+      "wikipediaTitle": "Balık ekmek"
+    },
+    {
+      "id": "midye-dolma",
+      "name": "Stuffed Mussels",
+      "turkishName": "Midye Dolma",
+      "category": "specialty",
+      "description": "Mussels stuffed with spiced rice, pine nuts and currants, served cold with a squeeze of lemon — a ubiquitous Istanbul street snack, sold by the piece from trays on street corners.",
+      "dietary": ["pescatarian"],
+      "regionHighlight": ["istanbul"],
+      "wikipediaTitle": "Midye dolma"
+    },
+    {
+      "id": "beyran-corbasi",
+      "name": "Beyran Soup",
+      "turkishName": "Beyran Çorbası",
+      "category": "specialty",
+      "description": "Fiery lamb-and-rice soup in a garlicky, chili-oil-laced broth, traditionally eaten for breakfast in Gaziantep — not for the faint-hearted this early, but a genuine local ritual.",
+      "dietary": [],
+      "regionHighlight": ["gaziantep"],
+      "wikipediaTitle": "Beyran"
+    },
+    {
+      "id": "katmer",
+      "name": "Katmer",
+      "turkishName": "Katmer",
+      "category": "specialty",
+      "description": "Thin, hand-stretched pastry filled with clotted cream (kaymak) and crushed pistachio, folded and griddled — a Gaziantep breakfast specialty, best eaten fresh and warm.",
+      "dietary": ["vegetarian"],
+      "regionHighlight": ["gaziantep"],
+      "wikipediaTitle": "Katmer"
+    },
+    {
+      "id": "izmir-kofte",
+      "name": "İzmir-Style Meatballs",
+      "turkishName": "İzmir Köfte",
+      "category": "specialty",
+      "description": "Oval meatballs baked in a tomato-and-pepper sauce with potatoes — an Aegean home-style dish, common on menus around Ephesus/Selçuk and Izmir.",
+      "dietary": [],
+      "regionHighlight": ["ephesus"],
+      "wikipediaTitle": "İzmir köfte"
+    },
+    {
+      "id": "ahtapot-izgara",
+      "name": "Grilled Octopus",
+      "turkishName": "Ahtapot Izgara",
+      "category": "specialty",
+      "description": "Char-grilled octopus, typically finished with olive oil and lemon — an Aegean/Bodrum coast staple that pairs the region's seafood focus with genuinely light eating.",
+      "dietary": ["pescatarian", "gluten-free"],
+      "regionHighlight": ["bodrum"],
+      "wikipediaTitle": "Octopus (food)"
+    }
+  ]
+}

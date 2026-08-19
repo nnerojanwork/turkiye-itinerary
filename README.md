@@ -18,10 +18,19 @@ React 19 + Vite, no backend. All pricing and activity data lives under
 - [`turkey_activity_links.json`](src/data/turkey_activity_links.json) —
   booking URLs and Wikipedia page titles per activity, merged onto the
   activities above by id (see [`activities.js`](src/data/activities.js)).
+- [`turkey_food.json`](src/data/turkey_food.json) — a flat list of dishes
+  (browse-only, no cost impact) with category, dietary tags, and an optional
+  `regionHighlight` used for the "What to Eat" tab and the per-destination
+  "Local specialties" strip.
+- [`turkey_beaches.json`](src/data/turkey_beaches.json) — per-destination
+  beach lists, or a `note` explaining why a landlocked stop has none.
 
-Activity card images are fetched at runtime from the Wikipedia REST API
-(`/page/summary/{title}`) using each activity's `wikipediaTitle`, and cached
-in memory for the session — no image files are hosted in the repo.
+All gallery images (activities, dishes, beaches) are fetched at runtime from
+the Wikipedia REST API (`/page/summary/{title}`) using each item's
+`wikipediaTitle`, via the shared [`useWikipediaImages`](src/hooks/useWikipediaImages.js)
+hook, and cached in memory for the session — no image files are hosted in the
+repo. The scroll-snap card shell itself ([`CardTrack.jsx`](src/components/CardTrack.jsx))
+is shared across all three galleries.
 
 ## Calculation logic
 

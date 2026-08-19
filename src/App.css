@@ -57,6 +57,10 @@
   align-items: start;
 }
 
+.app-main-single {
+  display: block;
+}
+
 .app-controls {
   display: flex;
   flex-direction: column;
@@ -336,13 +340,13 @@
   color: var(--terracotta);
 }
 
-/* Gallery shell */
+/* Gallery shell — shared by activities, dishes and beaches */
 
-.activity-gallery {
+.card-gallery {
   position: relative;
 }
 
-.activity-gallery-track {
+.card-gallery-track {
   display: flex;
   gap: 16px;
   overflow-x: auto;
@@ -353,7 +357,7 @@
   scrollbar-width: thin;
 }
 
-.activity-gallery-arrow {
+.card-gallery-arrow {
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
@@ -373,28 +377,28 @@
   box-shadow: var(--shadow);
 }
 
-.activity-gallery-arrow:hover {
+.card-gallery-arrow:hover {
   border-color: var(--terracotta);
   color: var(--terracotta);
 }
 
-.activity-gallery-arrow-left {
+.card-gallery-arrow-left {
   left: -14px;
 }
 
-.activity-gallery-arrow-right {
+.card-gallery-arrow-right {
   right: -14px;
 }
 
 @media (hover: none), (pointer: coarse) {
-  .activity-gallery-arrow {
+  .card-gallery-arrow {
     display: none;
   }
 }
 
-/* Cards */
+/* Shared card shell */
 
-.activity-card {
+.gallery-card {
   scroll-snap-align: start;
   flex: 0 0 82%;
   display: flex;
@@ -403,19 +407,24 @@
   border-radius: 6px;
   background: var(--paper-raised);
   overflow: hidden;
-  height: 440px;
 }
 
 @media (min-width: 640px) {
-  .activity-card {
+  .gallery-card {
     flex-basis: 70%;
   }
 }
 
 @media (min-width: 900px) {
-  .activity-card {
+  .gallery-card {
     flex-basis: 340px;
   }
+}
+
+/* Activity cards */
+
+.activity-card {
+  height: 440px;
 }
 
 .activity-card-image {
@@ -527,6 +536,326 @@
 
 .activity-card-link:hover {
   text-decoration: underline;
+}
+
+/* Local specialties strip (within a destination's itinerary group) */
+
+.local-specialties {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.local-specialties-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--ink-faint);
+  margin-right: 2px;
+}
+
+.local-specialty-chip {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--terracotta-soft);
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.local-specialties-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--turquoise);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ---------- Beaches ---------- */
+
+.beach-section {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+}
+
+.beach-section-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--turquoise);
+  padding: 0;
+}
+
+.beach-wave-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.beach-section-chevron {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.beach-section-note {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  background: var(--turquoise-soft);
+  padding: 12px 14px;
+  border-radius: 4px;
+}
+
+.beach-section-cards {
+  margin-top: 12px;
+}
+
+.beach-card {
+  height: 300px;
+}
+
+.beach-card-image {
+  position: relative;
+  flex: none;
+  height: 140px;
+  background: linear-gradient(135deg, var(--turquoise), var(--gold));
+  overflow: hidden;
+}
+
+.beach-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.beach-card-body {
+  flex: 1;
+  padding: 10px 12px 12px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.beach-card-name {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.beach-card-distance {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--turquoise);
+  margin-bottom: 6px;
+}
+
+.beach-card-description {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ---------- Food (dish cards + tab) ---------- */
+
+.dish-card {
+  height: 470px;
+}
+
+.dish-card-image {
+  position: relative;
+  flex: none;
+  height: 220px;
+  background: linear-gradient(135deg, var(--terracotta), var(--turquoise));
+  overflow: hidden;
+}
+
+.dish-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dish-card-badge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: rgba(36, 28, 21, 0.6);
+  backdrop-filter: blur(2px);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.dish-card-body {
+  flex: 1;
+  padding: 12px 14px 0;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.dish-card-name {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.dish-card-turkish {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+
+.dish-card-description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.dish-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 14px 14px;
+  flex: none;
+}
+
+.dish-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--turquoise-soft);
+  color: var(--turquoise);
+  text-transform: capitalize;
+}
+
+.app-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 32px 0 0;
+}
+
+.app-tab {
+  padding: 10px 22px;
+  border-radius: 20px;
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.app-tab:hover {
+  border-color: var(--terracotta);
+}
+
+.app-tab.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.food-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.food-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.food-filter-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--ink-faint);
+  margin-right: 4px;
+}
+
+.food-filter-chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.food-filter-chip:hover {
+  border-color: var(--terracotta);
+}
+
+.food-filter-chip.is-active {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: #fff;
+}
+
+.food-region-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  background: var(--turquoise-soft);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--turquoise);
+  font-weight: 600;
+}
+
+.food-region-banner button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--turquoise);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 13px;
+}
+
+.food-empty {
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 14px;
 }
 
 /* ---------- Timeline ---------- */
