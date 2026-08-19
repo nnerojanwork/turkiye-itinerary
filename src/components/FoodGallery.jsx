@@ -1,6 +1,9 @@
 import { useWikipediaImages } from "../hooks/useWikipediaImages";
 import CardTrack from "./CardTrack";
 
+const SPICE_LABEL = { none: "No spice", mild: "🌶️ Mild", medium: "🌶️🌶️ Medium", hot: "🌶️🌶️🌶️ Hot" };
+const RICHNESS_LABEL = { light: "Light", moderate: "Moderate", rich: "Rich" };
+
 function DishCard({ dish, imageState, destinationsById }) {
   const isLoading = imageState === undefined;
   const imageUrl = imageState || null;
@@ -23,6 +26,16 @@ function DishCard({ dish, imageState, destinationsById }) {
         {badgeDestination && (
           <span className="dish-card-badge">{badgeDestination.name} specialty</span>
         )}
+        {(dish.spiceLevel || dish.richness) && (
+          <div className="dish-card-meta">
+            {dish.spiceLevel && (
+              <span className="dish-card-spice">{SPICE_LABEL[dish.spiceLevel]}</span>
+            )}
+            {dish.richness && (
+              <span className="dish-card-richness">{RICHNESS_LABEL[dish.richness]}</span>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="dish-card-body">
@@ -31,9 +44,12 @@ function DishCard({ dish, imageState, destinationsById }) {
         <p className="dish-card-description">{dish.description}</p>
       </div>
 
-      {dish.dietary?.length > 0 && (
+      {(dish.dietary?.length > 0 || dish.safeOption) && (
         <div className="dish-card-tags">
-          {dish.dietary.map((tag) => (
+          {dish.safeOption && (
+            <span className="dish-tag dish-tag-safe">gentle option</span>
+          )}
+          {dish.dietary?.map((tag) => (
             <span key={tag} className="dish-tag">
               {tag.replace("-", " ")}
             </span>

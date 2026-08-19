@@ -16,6 +16,16 @@ const DIETARY_OPTIONS = [
   { id: "gluten-free", label: "Gluten-free" },
 ];
 
+const SPICE_LEVELS = [
+  { id: "any", label: "Any spice" },
+  { id: "none", label: "None" },
+  { id: "mild", label: "Mild or less" },
+  { id: "medium", label: "Medium or less" },
+  { id: "hot", label: "Hot or less" },
+];
+
+const SPICE_RANK = { none: 0, mild: 1, medium: 2, hot: 3 };
+
 export default function FoodExplorer({
   dishes,
   destinationsById,
@@ -24,6 +34,7 @@ export default function FoodExplorer({
 }) {
   const [category, setCategory] = useState("all");
   const [dietary, setDietary] = useState([]);
+  const [maxSpice, setMaxSpice] = useState("any");
 
   function toggleDietary(id) {
     setDietary((prev) =>
@@ -34,6 +45,12 @@ export default function FoodExplorer({
   const filtered = dishes.filter((d) => {
     if (category !== "all" && d.category !== category) return false;
     if (dietary.length > 0 && !d.dietary?.some((t) => dietary.includes(t))) {
+      return false;
+    }
+    if (
+      maxSpice !== "any" &&
+      SPICE_RANK[d.spiceLevel ?? "none"] > SPICE_RANK[maxSpice]
+    ) {
       return false;
     }
     if (regionFilter && !d.regionHighlight?.includes(regionFilter)) {
@@ -84,6 +101,19 @@ export default function FoodExplorer({
               onClick={() => toggleDietary(d.id)}
             >
               {d.label}
+            </button>
+          ))}
+        </div>
+        <div className="food-filter-row">
+          <span className="food-filter-label">Spice tolerance</span>
+          {SPICE_LEVELS.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              className={`food-filter-chip ${maxSpice === s.id ? "is-active" : ""}`}
+              onClick={() => setMaxSpice(s.id)}
+            >
+              {s.label}
             </button>
           ))}
         </div>

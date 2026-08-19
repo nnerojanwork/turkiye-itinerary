@@ -5,6 +5,31 @@ import { useEffect, useState } from "react";
 // already looked up this session.
 const imageCache = new Map();
 
+// Fallback for titles with no dedicated Wikipedia article (common for
+// specific regional dishes) — search Wikimedia Commons directly for a
+// matching photo instead of leaving the card on its gradient placeholder.
+async function fetchCommonsImage(wikipediaTitle) {
+  try {
+    const searchRes = await fetch(
+      `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(wikipediaTitle)}&srnamespace=6&format=json&srlimit=1&origin=*`
+    );
+    if (!searchRes.ok) return null;
+    const searchData = await searchRes.json();
+    const fileTitle = searchData.query?.search?.[0]?.title;
+    if (!fileTitle) return null;
+
+    const infoRes = await fetch(
+      `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(fileTitle)}&prop=imageinfo&iiprop=url&iiurlwidth=330&format=json&origin=*`
+    );
+    if (!infoRes.ok) return null;
+    const infoData = await infoRes.json();
+    const pages = Object.values(infoData.query?.pages ?? {});
+    return pages[0]?.imageinfo?.[0]?.thumburl ?? null;
+  } catch {
+    return null;
+  }
+}
+
 async function fetchWikipediaImage(wikipediaTitle) {
   if (imageCache.has(wikipediaTitle)) return imageCache.get(wikipediaTitle);
   try {
@@ -14,11 +39,15 @@ async function fetchWikipediaImage(wikipediaTitle) {
     if (!res.ok) throw new Error(`Wikipedia summary failed: ${res.status}`);
     const data = await res.json();
     const url = data.thumbnail?.source ?? data.originalimage?.source ?? null;
-    imageCache.set(wikipediaTitle, url);
-    return url;
+    if (url) {
+      imageCache.set(wikipediaTitle, url);
+      return url;
+    }
+    throw new Error("No thumbnail on article");
   } catch {
-    imageCache.set(wikipediaTitle, null);
-    return null;
+    const fallbackUrl = await fetchCommonsImage(wikipediaTitle);
+    imageCache.set(wikipediaTitle, fallbackUrl);
+    return fallbackUrl;
   }
 }
 
