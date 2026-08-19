@@ -1,8 +1,8 @@
 {
   "_methodology": {
     "currency": "GBP",
-    "note": "Prices were sourced in EUR and converted to GBP at a fixed placeholder rate (0.86) so they total cleanly against the flight/Airbnb figures, which are already in GBP. Re-convert at the live rate before using this for a real pitch. sourced: true = found a specific current price; sourced: false = estimated from comparable tours — verify before pitch.",
-    "lastUpdated": "2026-08-18"
+    "note": "Prices were sourced in EUR (rate 0.86) or USD (rate 0.79) and converted to GBP at these fixed placeholder rates so they total cleanly against the flight/Airbnb figures, which are already in GBP. Re-convert at the live rate before using this for a real pitch. sourced: true = found a specific current price; sourced: false = estimated from comparable tours — verify before pitch.",
+    "lastUpdated": "2026-08-19"
   },
   "destinations": {
     "istanbul": {
@@ -46,6 +46,56 @@
           "category": "self-guided",
           "defaultSelected": false,
           "sourced": true
+        },
+        {
+          "id": "istanbul-blue-mosque",
+          "name": "Blue Mosque (Sultan Ahmed Mosque)",
+          "description": "Six minarets and a cascade of domes front the working mosque famous for its 20,000 handmade İznik tiles inside. Free to enter outside prayer times; modest dress required, headscarves provided for women.",
+          "pricePerPerson": 0,
+          "durationHours": 1,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "istanbul-grand-bazaar",
+          "name": "Grand Bazaar",
+          "description": "One of the world's oldest and largest covered markets — over 4,000 shops across 61 streets selling carpets, lanterns, ceramics, spices and gold. Haggling is expected.",
+          "pricePerPerson": 0,
+          "durationHours": 2,
+          "category": "self-guided",
+          "defaultSelected": true,
+          "sourced": true
+        },
+        {
+          "id": "istanbul-archaeology-museums",
+          "name": "Istanbul Archaeology Museums",
+          "description": "Three museums in one complex holding the Alexander Sarcophagus and treasures spanning the ancient Near East — one of the world's great archaeology collections, and usually far quieter than Topkapı next door.",
+          "pricePerPerson": 13,
+          "durationHours": 2,
+          "category": "self-guided",
+          "defaultSelected": false,
+          "sourced": true
+        },
+        {
+          "id": "istanbul-dolmabahce-palace",
+          "name": "Dolmabahçe Palace",
+          "description": "Ottoman sultans swapped Topkapı for this 19th-century Bosphorus-front palace — crystal staircases, a 4.5-tonne chandelier, and the room where Atatürk died in 1938 (the clocks inside are stopped at 9:05, his time of death).",
+          "pricePerPerson": 35,
+          "durationHours": 2,
+          "category": "self-guided",
+          "defaultSelected": false,
+          "sourced": true
+        },
+        {
+          "id": "istanbul-food-tour",
+          "name": "Istanbul street food tour",
+          "description": "A guided crawl through Istanbul's food scene: fresh-baked simit, döner and kebab stalls, meze spreads, balık ekmek (grilled fish sandwiches by the Galata Bridge), a full Turkish breakfast with çay, and baklava to finish.",
+          "pricePerPerson": 45,
+          "durationHours": 3.5,
+          "category": "guided",
+          "defaultSelected": true,
+          "sourced": false
         }
       ]
     },
@@ -80,6 +130,16 @@
           "category": "self-guided",
           "defaultSelected": true,
           "sourced": false
+        },
+        {
+          "id": "cappadocia-rose-valley-sunset-hike",
+          "name": "Rose Valley sunset hike",
+          "description": "A guided 2-hour walk through Güllüdere (Rose Valley), named for the rock's rose-pink glow at sunset — past rock-cut Byzantine churches and pigeon houses to a ridge viewpoint over the valley.",
+          "pricePerPerson": 18,
+          "durationHours": 2,
+          "category": "signature",
+          "defaultSelected": true,
+          "sourced": true
         }
       ]
     },

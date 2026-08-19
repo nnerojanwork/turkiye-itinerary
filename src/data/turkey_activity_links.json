@@ -2,7 +2,7 @@
   "_methodology": {
     "bookingUrl": "Real URLs where a specific bookable product page exists (sourced: true). Where no single canonical booking page exists (e.g. official sites that only sell in-person, or generic ticket categories), the URL points to a genuine search/category page rather than a fabricated product link (sourced: false, labelled 'search page').",
     "images": "No image files are hosted here — images are fetched at runtime from the Wikipedia REST API by wikipediaTitle, cached client-side. This avoids hotlinking unlicensed photos and keeps the dataset text-only.",
-    "lastUpdated": "2026-08-18"
+    "lastUpdated": "2026-08-19"
   },
   "destinations": {
     "istanbul": {
@@ -35,6 +35,45 @@
           "bookingUrl": "https://www.getyourguide.com/istanbul-l56/basilica-cistern-hagia-sophia-with-optional-topkapi-palace-t713788/",
           "sourced": true,
           "wikipediaTitle": "Basilica Cistern"
+        },
+        {
+          "id": "istanbul-blue-mosque",
+          "name": "Blue Mosque (Sultan Ahmed Mosque)",
+          "bookingUrl": null,
+          "sourced": true,
+          "sourceNote": "Free, self-guided — no booking link applicable.",
+          "wikipediaTitle": "Sultan Ahmed Mosque"
+        },
+        {
+          "id": "istanbul-grand-bazaar",
+          "name": "Grand Bazaar",
+          "bookingUrl": null,
+          "sourced": true,
+          "sourceNote": "Free, self-guided — no booking link applicable.",
+          "wikipediaTitle": "Grand Bazaar, Istanbul"
+        },
+        {
+          "id": "istanbul-archaeology-museums",
+          "name": "Istanbul Archaeology Museums",
+          "bookingUrl": "https://muze.gov.tr/muze-detay?SectionId=IAR01&DistId=IAR",
+          "sourced": true,
+          "sourceNote": "Official Turkish state museums ticket portal — not a single dedicated product page.",
+          "wikipediaTitle": "Istanbul Archaeology Museums"
+        },
+        {
+          "id": "istanbul-dolmabahce-palace",
+          "name": "Dolmabahçe Palace",
+          "bookingUrl": "https://topkapi-palace.com/tickets-and-audio-guide-dolmabahce-palace/",
+          "sourced": true,
+          "wikipediaTitle": "Dolmabahçe Palace"
+        },
+        {
+          "id": "istanbul-food-tour",
+          "name": "Istanbul street food tour",
+          "bookingUrl": "https://www.getyourguide.com/istanbul-l56/istanbul-traditional-street-food-tour-t595626/",
+          "sourced": false,
+          "sourceNote": "Product page found but price could not be confirmed (site blocks automated access) — verify before pitch.",
+          "wikipediaTitle": "Turkish cuisine"
         }
       ]
     },
@@ -62,6 +101,13 @@
           "sourced": false,
           "sourceNote": "Search page — official ticket is on-site only.",
           "wikipediaTitle": "Göreme Open Air Museum"
+        },
+        {
+          "id": "cappadocia-rose-valley-sunset-hike",
+          "name": "Rose Valley sunset hike",
+          "bookingUrl": "https://www.tripadvisor.co.uk/AttractionProductReview-g297983-d23141588-Rose_Valley_Sunset_Hiking_in_Cappadocia-Goreme_Nevsehir_Province_Cappadocia.html",
+          "sourced": true,
+          "wikipediaTitle": "Cappadocia"
         }
       ]
     },

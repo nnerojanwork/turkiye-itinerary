@@ -29,7 +29,7 @@ const baseDestinations = [
     isGateway: true,
     mandatory: true,
     recommendedNights: 3,
-    vibe: "History, culture, museums",
+    vibe: "History, culture, museums, street food",
     blurb: "Where East meets West — mosques, bazaars, and the Bosphorus skyline.",
     flightFromLondon: {
       jan: 145, feb: 130, mar: 150, apr: 175, may: 190, jun: 215,
