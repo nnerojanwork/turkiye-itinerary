@@ -21,11 +21,6 @@ function ActivityCard({ activity, imageState, selected, onToggle }) {
             )}
           </div>
         )}
-        {activity.isJoke && (
-          <span className="activity-card-joke-badge">
-            😏 not a real itinerary item
-          </span>
-        )}
         <div className="activity-card-meta">
           <span className="activity-card-price">
             {activity.pricePerPerson === 0 ? "Free" : `£${activity.pricePerPerson}pp`}
