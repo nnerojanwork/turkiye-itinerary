@@ -10,6 +10,8 @@ import RouteTimeline from "./components/RouteTimeline";
 import CostSummary from "./components/CostSummary";
 import FoodExplorer from "./components/FoodExplorer";
 import ComparisonTab from "./components/ComparisonTab";
+import TripMap from "./components/TripMap";
+import GalleryTab from "./components/GalleryTab";
 import { dishes } from "./data/food";
 import { buildPresets } from "./data/presets";
 import "./App.css";
@@ -171,48 +173,62 @@ export default function App() {
           >
             Quick Trip vs. Full Odyssey
           </button>
+          <button
+            type="button"
+            className={`app-tab ${activeTab === "gallery" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("gallery")}
+          >
+            Sights & Flavors
+          </button>
         </nav>
       </header>
 
       {activeTab === "itinerary" ? (
-        <main className="app-main">
-          <div className="app-controls">
-            <MonthPicker month={month} onChange={setMonth} />
-            <TripLengthPicker tripLength={tripLength} onChange={setTripLength} />
-            <DestinationSelector
-              destinations={sortedDestinations}
-              selectedIds={selectedIds}
-              onToggle={toggleDestination}
-            />
-            {selectedDestinations.length > 0 && (
-              <NightAllocator
-                selectedDestinations={selectedDestinations}
-                nightsByDestination={nightsByDestination}
-                tripLength={tripLength}
-                onAdjust={adjustNights}
+        <>
+          <main className="app-main">
+            <div className="app-controls">
+              <MonthPicker month={month} onChange={setMonth} />
+              <TripLengthPicker tripLength={tripLength} onChange={setTripLength} />
+              <DestinationSelector
+                destinations={sortedDestinations}
+                selectedIds={selectedIds}
+                onToggle={toggleDestination}
               />
-            )}
-            <ActivitySelector
-              selectedDestinations={selectedDestinations}
-              selectedActivitiesByDestination={selectedActivitiesByDestination}
-              onToggleActivity={toggleActivity}
-              onViewFoodForDestination={viewFoodForDestination}
-            />
-            {selectedDestinations.length > 0 && (
-              <RouteTimeline
+              {selectedDestinations.length > 0 && (
+                <NightAllocator
+                  selectedDestinations={selectedDestinations}
+                  nightsByDestination={nightsByDestination}
+                  tripLength={tripLength}
+                  onAdjust={adjustNights}
+                />
+              )}
+              <ActivitySelector
                 selectedDestinations={selectedDestinations}
-                nightsByDestination={nightsByDestination}
+                selectedActivitiesByDestination={selectedActivitiesByDestination}
+                onToggleActivity={toggleActivity}
+                onViewFoodForDestination={viewFoodForDestination}
               />
-            )}
-          </div>
+              {selectedDestinations.length > 0 && (
+                <RouteTimeline
+                  selectedDestinations={selectedDestinations}
+                  nightsByDestination={nightsByDestination}
+                />
+              )}
+            </div>
 
-          <CostSummary
-            costs={costs}
-            groupSize={defaults.groupSize}
-            tripLength={tripLength}
-            foodPerPersonPerDay={defaults.foodPerPersonPerDay}
+            <CostSummary
+              costs={costs}
+              groupSize={defaults.groupSize}
+              tripLength={tripLength}
+              foodPerPersonPerDay={defaults.foodPerPersonPerDay}
+            />
+          </main>
+
+          <TripMap
+            selectedDestinations={selectedDestinations}
+            nightsByDestination={nightsByDestination}
           />
-        </main>
+        </>
       ) : activeTab === "food" ? (
         <main className="app-main app-main-single">
           <FoodExplorer
@@ -222,13 +238,17 @@ export default function App() {
             onClearRegionFilter={() => setFoodRegionFilter(null)}
           />
         </main>
-      ) : (
+      ) : activeTab === "compare" ? (
         <main className="app-main app-main-single">
           <ComparisonTab
             presets={presets}
             allDestinations={sortedDestinations}
             onCustomize={applyPreset}
           />
+        </main>
+      ) : (
+        <main className="app-main app-main-single">
+          <GalleryTab />
         </main>
       )}
     </div>

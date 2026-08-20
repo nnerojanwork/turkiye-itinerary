@@ -25,6 +25,10 @@ React 19 + Vite, no backend. All pricing and activity data lives under
   strip.
 - [`turkey_beaches.json`](src/data/turkey_beaches.json) — per-destination
   beach lists, or a `note` explaining why a landlocked stop has none.
+- [`turkey_coordinates.json`](src/data/turkey_coordinates.json) —
+  approximate lat/lng for the map, keyed to match destination and beach ids
+  elsewhere so popups can join in descriptions/night counts without a
+  separate lookup.
 
 All gallery images (activities, dishes, beaches) are fetched at runtime from
 the Wikipedia REST API (`/page/summary/{title}`) using each item's
@@ -53,8 +57,19 @@ prices were sourced in EUR and converted to GBP at a fixed placeholder rate
 
 ## Tabs
 
-- **Build Your Trip** — the interactive builder described above.
-- **What to Eat** — browse-only dish gallery, no cost impact.
+- **Build Your Trip** — the interactive builder described above. A Leaflet +
+  OpenStreetMap section ([`TripMap.jsx`](src/components/TripMap.jsx), no API
+  key needed) sits below the cost summary: pins for every selected
+  destination, wave markers for their beaches, a dashed route line in
+  itinerary order, and `fitBounds` so the view always makes sense whether
+  one stop or six is picked.
+- **What to Eat** — browse-only dish gallery, no cost impact. Includes one
+  deadpan joke card, Istanbul's "Hair Transplant (FUE)" — tagged
+  `isJoke: true`, badged in the UI, ships its own local image
+  (`public/assets/istanbul-hair-transplant.png`) instead of a Wikipedia
+  lookup, and — like any other optional activity — only counts toward the
+  cost total if a user actually toggles it on (see the comment in
+  `calculateCosts`).
 - **Quick Trip vs. Full Odyssey** — a pitch/framing tab with two fixed
   presets ([`presets.js`](src/data/presets.js)): a 5-day Istanbul + Antalya
   trip and a 14-day six-stop trip. Both night splits come from
@@ -63,6 +78,18 @@ prices were sourced in EUR and converted to GBP at a fixed placeholder rate
   "Customize from here" button applies its destinations/nights/month to
   the Build Your Trip tab's state and switches to it, so the pitch tab is
   an entry point into the real builder rather than a dead end.
+- **Sights & Flavors** — a text-free masonry lookbook
+  ([`GalleryTab.jsx`](src/components/GalleryTab.jsx)) pulling every
+  destination, real activity, and dish already in the app, deduplicated by
+  `wikipediaTitle`, fetching the full-resolution `originalimage` via a
+  dedicated hook ([`useGalleryImages.js`](src/hooks/useGalleryImages.js)).
+  Tiles with no resolvable image are simply omitted. Name appears only on
+  hover/tap; clicking opens the source Wikipedia article.
+
+> **Note:** no image was supplied for the hair transplant joke card, so
+> `public/assets/istanbul-hair-transplant.png` is currently a generated
+> placeholder gradient — swap in a real image at that path whenever one's
+> available.
 
 ## Development
 

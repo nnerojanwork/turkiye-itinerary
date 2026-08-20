@@ -71,6 +71,11 @@ export function calculateCosts({
       .map((a) => ({ ...a, destinationId: d.id, destinationName: d.name }));
   });
 
+  // Joke entries (isJoke: true, e.g. the Istanbul hair transplant card) are
+  // NOT excluded here — defaultSelected is false so they start out of the
+  // total, but if a user deliberately toggles one on, it counts like any
+  // other activity rather than being silently ignored. Simpler than a
+  // special-cased exclusion, and "opting in" is itself part of the joke.
   const activitiesTotal = selectedActivities.reduce(
     (sum, a) => sum + a.pricePerPerson,
     0

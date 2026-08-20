@@ -1,0 +1,36 @@
+{
+  "_methodology": {
+    "note": "Approximate coordinates for map display — town/landmark-level accuracy, not exact venue pins. Destination ids match tripData.js; beach ids match turkey_beaches.json so popup descriptions can be joined by id.",
+    "lastUpdated": "2026-08-20"
+  },
+  "destinations": {
+    "istanbul": { "name": "Istanbul", "coords": [41.0082, 28.9784] },
+    "cappadocia": { "name": "Cappadocia (Göreme)", "coords": [38.6431, 34.8289] },
+    "gaziantep": { "name": "Gaziantep", "coords": [37.0662, 37.3833] },
+    "pamukkale": { "name": "Pamukkale", "coords": [37.9203, 29.1207] },
+    "ephesus": { "name": "Ephesus / Selçuk", "coords": [37.9500, 27.3667] },
+    "bodrum": { "name": "Bodrum", "coords": [37.0344, 27.4305] },
+    "antalya": { "name": "Antalya / Kaleiçi", "coords": [36.8969, 30.7133] }
+  },
+  "beaches": {
+    "istanbul": [
+      { "id": "buyukada-beach", "name": "Büyükada (Princes' Islands)", "coords": [40.8556, 29.1211] },
+      { "id": "kilyos-beach", "name": "Kilyos", "coords": [41.2444, 29.0217] },
+      { "id": "florya-beach", "name": "Florya", "coords": [40.9750, 28.7861] }
+    ],
+    "ephesus": [
+      { "id": "pamucak-beach", "name": "Pamucak Beach", "coords": [37.9494, 27.2694] },
+      { "id": "ladies-beach-kusadasi", "name": "Ladies Beach (Kadınlar Denizi), Kuşadası", "coords": [37.8531, 27.2450] }
+    ],
+    "bodrum": [
+      { "id": "gumbet-beach", "name": "Gümbet", "coords": [37.0333, 27.4167] },
+      { "id": "gumusluk-beach", "name": "Gümüşlük", "coords": [37.0486, 27.2436] },
+      { "id": "ortakent-yalisi", "name": "Ortakent Yalısı", "coords": [37.0389, 27.3736] }
+    ],
+    "antalya": [
+      { "id": "konyaalti-beach", "name": "Konyaaltı", "coords": [36.8763, 30.6567] },
+      { "id": "lara-beach", "name": "Lara Beach", "coords": [36.8494, 30.7972] },
+      { "id": "phaselis-beach", "name": "Phaselis", "coords": [36.5219, 30.5453] }
+    ]
+  }
+}

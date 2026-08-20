@@ -2,8 +2,10 @@ import { useWikipediaImages } from "../hooks/useWikipediaImages";
 import CardTrack from "./CardTrack";
 
 function ActivityCard({ activity, imageState, selected, onToggle }) {
-  const isLoading = imageState === undefined;
-  const imageUrl = imageState || null;
+  // Joke entries (e.g. the Istanbul hair transplant card) ship their own
+  // local image and skip the Wikipedia lookup entirely.
+  const isLoading = !activity.localImage && imageState === undefined;
+  const imageUrl = activity.localImage || imageState || null;
 
   return (
     <div className="gallery-card activity-card">
@@ -18,6 +20,11 @@ function ActivityCard({ activity, imageState, selected, onToggle }) {
               <span className="activity-card-placeholder-label">{activity.name}</span>
             )}
           </div>
+        )}
+        {activity.isJoke && (
+          <span className="activity-card-joke-badge">
+            😏 not a real itinerary item
+          </span>
         )}
         <div className="activity-card-meta">
           <span className="activity-card-price">

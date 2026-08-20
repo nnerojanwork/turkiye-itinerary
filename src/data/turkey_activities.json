@@ -96,6 +96,21 @@
           "category": "guided",
           "defaultSelected": true,
           "sourced": false
+        },
+        {
+          "id": "istanbul-hair-transplant",
+          "name": "Hair Transplant (FUE)",
+          "description": "Not a bit — Istanbul genuinely performs more hair transplants than anywhere else on earth, with entire hotel packages built around it. You'll spot the tell-tale headband bandage on roughly one in three men at the airport. Optional group activity; recovery time may exceed the length of the trip.",
+          "pricePerPerson": 2500,
+          "priceRange": "1500-4000, often bundled with hotel + airport transfer as an 'all-inclusive package'",
+          "durationHours": 8,
+          "category": "joke",
+          "isJoke": true,
+          "defaultSelected": false,
+          "sourced": false,
+          "sourceNote": "Ballpark from general market knowledge of Istanbul hair transplant tourism pricing — not a specific clinic quote, and deliberately not meant to be taken as a real budget line.",
+          "bookingUrl": null,
+          "localImage": "/assets/istanbul-hair-transplant.png"
         }
       ]
     },
